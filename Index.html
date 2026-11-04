@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bienvenue en L1 – IFRI</title>
+<style>
+:root{--bg:#f5f7fb;--card:#fff;--text:#14213d;--muted:#55627f;--navy:#0b2a5b;--navy2:#143d85;--accent:#f2b705;--line:#dde4f0;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0a1226;--card:#121c38;--text:#eaf0ff;--muted:#a3b1d1;--navy:#0b2a5b;--navy2:#1b4aa0;--line:#223157}}
+:root[data-theme="dark"]{--bg:#0a1226;--card:#121c38;--text:#eaf0ff;--muted:#a3b1d1;--navy:#0b2a5b;--navy2:#1b4aa0;--line:#223157}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.6}
+.hero{background:linear-gradient(160deg,var(--navy),var(--navy2));color:#fff;text-align:center;padding:48px 20px 56px}
+.badge{display:inline-block;background:var(--accent);color:#14213d;font-weight:700;font-size:.8rem;letter-spacing:.06em;padding:4px 12px;border-radius:999px;margin-bottom:16px}
+h1{font-size:clamp(1.9rem,7vw,3rem);margin:0 0 12px;line-height:1.15}
+.hero p{max-width:34rem;margin:0 auto;opacity:.92;font-size:1.05rem}
+main{max-width:52rem;margin:0 auto;padding:0 16px 32px}
+section{margin-top:32px}
+h2{font-size:1.4rem;color:var(--navy2);margin:0 0 14px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) h2{color:#8fb3ff}}
+:root[data-theme="dark"] h2{color:#8fb3ff}
+.word{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--accent);border-radius:12px;padding:18px;margin-top:-28px;box-shadow:0 6px 20px rgba(0,0,0,.08)}
+.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+.card .ic{font-size:1.6rem}
+.card h3{margin:6px 0 4px;font-size:1.05rem}
+.card p{margin:0;color:var(--muted);font-size:.95rem}
+ol{padding-left:1.2rem;margin:0}
+ol li{margin-bottom:10px}
+.cta{background:var(--navy);color:#fff;border-radius:14px;padding:24px 18px;text-align:center}
+.cta p{margin:0 0 14px;opacity:.9}
+.btn{display:inline-block;background:var(--accent);color:#14213d;font-weight:700;text-decoration:none;padding:12px 22px;border-radius:10px}
+footer{text-align:center;color:var(--muted);font-size:.85rem;padding:8px 16px 28px}
+.gate{position:fixed;inset:0;z-index:50;display:flex;align-items:center;justify-content:center;padding:20px;background:linear-gradient(160deg,var(--navy),var(--navy2))}
+.gate[hidden],#site[hidden]{display:none}
+.gate-box{background:var(--card);border-radius:16px;padding:28px 22px;width:100%;max-width:22rem;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+.gate-box h2{margin:8px 0 6px}
+.gate-box p{margin:0 0 16px;color:var(--muted);font-size:.95rem}
+.gate-box input{width:100%;font-size:1.1rem;padding:12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--text);text-align:center;letter-spacing:.1em}
+.gate-box button{width:100%;margin-top:12px;border:0;cursor:pointer;font-size:1rem}
+.err{color:#d93025;font-size:.9rem;min-height:1.3em;margin-top:10px}
+.intro{position:fixed;inset:0;z-index:40;background:#050d1f;overflow:hidden;display:flex;align-items:center;justify-content:center;color:#fff}
+.intro[hidden]{display:none}
+#code{position:absolute;inset:0;margin:0;overflow:hidden;font:12px/1.5 ui-monospace,Menlo,Consolas,monospace;color:#4aa8ff;opacity:.3;white-space:pre}
+#codeIn{display:block;animation:up 60s linear infinite}
+@keyframes up{from{transform:translateY(0)}to{transform:translateY(-50%)}}
+@media (prefers-reduced-motion:reduce){#codeIn{animation:none}}
+.intro::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(5,13,31,.8) 0%,rgba(5,13,31,.25) 75%);pointer-events:none}
+.stage{position:relative;z-index:2;text-align:center;padding:24px;max-width:36rem}
+.line{opacity:0;transform:translateY(16px);transition:opacity 1s,transform 1s}
+.line.show{opacity:1;transform:none}
+.big{font-size:clamp(1.9rem,7.5vw,3.2rem);font-weight:800;line-height:1.2}
+.big em{color:var(--accent);font-style:normal}
+.sub{font-size:clamp(1rem,3.8vw,1.3rem);opacity:.92;margin-top:14px}
+.stage .btn{margin-top:26px;border:0;cursor:pointer;font-size:1.05rem}
+.bar{position:absolute;left:0;bottom:0;height:4px;background:var(--accent);width:0;z-index:3;transition:width .6s}
+.skip{position:absolute;top:calc(env(safe-area-inset-top,0px) + 12px);right:14px;z-index:4;background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:6px 14px;cursor:pointer;font-size:.85rem}
+.ask{position:fixed;inset:0;z-index:45;display:flex;align-items:center;justify-content:center;padding:20px;background:linear-gradient(160deg,var(--navy),#050d1f);color:#fff;overflow:auto}
+.ask[hidden]{display:none}
+.ask-in{width:100%;max-width:26rem;text-align:center}
+.aq{font-size:clamp(1.5rem,6vw,2.1rem);font-weight:800;line-height:1.25;margin-bottom:8px}
+.asub{opacity:.85;margin:0 0 18px}
+.fbtn{display:block;width:100%;margin:10px 0;padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.1);color:#fff;font-size:1.05rem;cursor:pointer}
+.fbtn:hover,.fbtn:active{background:var(--accent);color:#14213d}
+details.qa{background:var(--card);border:1px solid var(--line);border-radius:12px;margin-bottom:10px;padding:0 16px}
+details.qa[open]{border-left:5px solid var(--accent)}
+details.qa summary{cursor:pointer;font-weight:700;padding:14px 0}
+details.qa p{margin:0 0 14px;color:var(--muted)}
+.change{background:none;border:1px solid var(--line);color:var(--muted);border-radius:999px;padding:6px 14px;cursor:pointer;margin-top:6px}
+.final{max-width:calc(52rem - 32px);width:calc(100% - 32px);margin:8px auto 24px;padding:26px 18px;text-align:center;font-size:clamp(1.15rem,4.5vw,1.5rem);font-weight:800;line-height:1.4;color:#fff;background:linear-gradient(160deg,var(--navy),var(--navy2));border-radius:14px}
+</style>
+</head>
+<body>
+<div class="gate" id="gate">
+  <div class="gate-box">
+    <div style="font-size:2.2rem">🔐</div>
+    <h2>Clé d’accès</h2>
+    <p>Entre la clé d’accès reçue pour découvrir la page de bienvenue des L1.</p>
+    <input id="key" type="password" autocomplete="off" placeholder="Clé d’accès" aria-label="Clé d’accès">
+    <button class="btn" id="go" type="button">Entrer</button>
+    <div class="err" id="err" role="alert"></div>
+  </div>
+</div>
+<div class="intro" id="intro" hidden>
+  <pre id="code" aria-hidden="true"><span id="codeIn"></span></pre>
+  <button class="skip" id="skip" type="button">Passer ›</button>
+  <div class="stage" id="stage" aria-live="polite"></div>
+  <div class="bar" id="bar"></div>
+</div>
+<div class="ask" id="ask" hidden>
+  <div class="ask-in">
+    <div class="aq">Quelle est ta filière, jeune prodige à l’avenir prometteur ? 🚀</div>
+    <p class="asub">Choisis-la pour personnaliser ta page.</p>
+    <div id="fbtns"></div>
+  </div>
+</div>
+<div id="site" hidden>
+<header class="hero">
+  <span class="badge" id="bd">RENTRÉE L1</span>
+  <h1 id="h1">Bienvenue à l’IFRI&nbsp;! 🎓</h1>
+  <p>Institut de Formation et de Recherche en Informatique, Université d’Abomey-Calavi. Une nouvelle aventure commence pour vous.</p>
+</header>
+<main>
+  <div class="word">
+    <strong>Chers nouveaux étudiants de L1,</strong><br>
+    Félicitations pour votre admission. Vous rejoignez une communauté de passionnés d’informatique. Ici, vous allez apprendre, coder, vous tromper, recommencer et grandir. Nous sommes ravis de vous accueillir.
+  </div>
+
+  <section id="fq"></section>
+
+  <section>
+    <h2>Ce qui vous attend</h2>
+    <div class="grid">
+      <div class="card"><div class="ic">💻</div><h3>Programmation</h3><p>Algorithmique, langage C et bases solides pour construire la suite.</p></div>
+      <div class="card"><div class="ic">📐</div><h3>Mathématiques</h3><p>Arithmétique, algèbre et logique : le socle de la réflexion informatique.</p></div>
+      <div class="card"><div class="ic">🤝</div><h3>Vie étudiante</h3><p>Travaux de groupe, entraide et projets avec vos camarades.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Nos conseils pour bien démarrer</h2>
+    <ol>
+      <li><strong>Soyez régulier.</strong> Révisez un peu chaque jour plutôt que tout la veille.</li>
+      <li><strong>Pratiquez le code.</strong> On apprend à programmer en écrivant des programmes, pas seulement en lisant.</li>
+      <li><strong>Posez des questions.</strong> Aucun doute n’est ridicule, et vos aînés sont passés par là.</li>
+      <li><strong>Travaillez en équipe.</strong> Expliquer à un camarade est la meilleure façon de comprendre.</li>
+    </ol>
+  </section>
+
+  <section class="cta">
+    <h2 style="color:#fff">Besoin d’un coup de main&nbsp;?</h2>
+    <p>Rejoignez IFRI Entraide : discutez par matière et trouvez des étudiants forts pour vous aider.</p>
+    <a class="btn" href="https://junior-tech2.github.io/Ifri-entraide-/" target="_blank" rel="noopener">Rejoindre IFRI Entraide</a>
+  </section>
+</main>
+<div class="final">Ton avenir ne dépend que de toi, il est temps de prendre les choses en main pour ne pas regretter après 😎</div>
+<footer>Bonne rentrée et plein succès à toutes et à tous&nbsp;! 🚀</footer>
+</div>
+<script>
+var CODE="IFRIL1"; // change ici la clé d’accès
+var gate=document.getElementById("gate"),site=document.getElementById("site"),key=document.getElementById("key"),err=document.getElementById("err");
+function open_(){gate.hidden=true;site.hidden=false;try{sessionStorage.setItem("ifri_ok","1")}catch(e){}}
+function check(){if(key.value.trim().toUpperCase()===CODE.toUpperCase()){enter()}else{err.textContent="Clé incorrecte, réessaie.";key.value="";key.focus()}}
+document.getElementById("go").addEventListener("click",check);
+key.addEventListener("keydown",function(e){if(e.key==="Enter")check()});
+var intro=document.getElementById('intro'),stage=document.getElementById('stage'),bar=document.getElementById('bar'),codeIn=document.getElementById('codeIn'),timer=null,idx=0;
+var CL=['#include <stdio.h>','#include <stdlib.h>','','typedef struct Noeud {','    int valeur;','    struct Noeud *suivant;','} Noeud;','','Noeud *ajouter(Noeud *tete, int v) {','    Noeud *n = malloc(sizeof(Noeud));','    n->valeur = v;','    n->suivant = tete;','    return n;','}','','int somme(int n) {','    int s = 0;','    for (int i = 1; i <= n; i++)','        s += i;','    return s;','}','','int pgcd(int a, int b) {','    return b == 0 ? a : pgcd(b, a % b);','}','','int main(void) {','    puts("Bienvenue a l IFRI");','    Noeud *liste = NULL;','    for (int i = 0; i < 5; i++)','        liste = ajouter(liste, i * i);','    printf("%d", somme(10));','    return 0;','}',''];
+var blk=CL.join('\n')+'\n';codeIn.textContent=blk+blk+blk+blk;
+var SL=[
+{t:'Bienvenue à l’<em>IFRI</em>',s:'Là où l’avenir s’écrit en code.'},
+{t:'Ici, tu ne te contentes pas d’utiliser la technologie. <em>Tu la crées.</em>',s:'L’informatique est le langage du monde moderne. Tu vas apprendre à le parler.'},
+{t:'Des bases <em>solides</em>',s:'Algorithmique, programmation, mathématiques : le socle qui fait les grands développeurs.'},
+{t:'La théorie <em>et</em> la pratique',s:'Tu apprends en codant, en construisant, en te trompant, puis en réussissant.'},
+{t:'Des portes ouvertes <em>partout</em>',s:'Développement, intelligence artificielle, cybersécurité, réseaux, données : l’informatique n’a pas de frontières.'},
+{t:'Une <em>communauté</em> de passionnés',s:'Camarades, aînés, enseignants : on va toujours plus loin ensemble.'},
+{t:'Ton idée peut <em>changer</em> ton pays',s:'Le numérique a besoin de talents comme toi. Pourquoi pas toi ?'},
+{t:'Le premier pas est fait.',s:'Commence. Persévère. <b style="color:var(--accent)">Brille.</b>'},
+{t:'Félicitations&nbsp;! 🎉',s:'À l’IFRI, tu devras te surpasser chaque jour. Derrière chaque ligne de code se cache une vérité incontestable : <b style="color:var(--accent)">les mathématiques</b>.',last:true}
+];
+function enter(){gate.hidden=true;try{sessionStorage.setItem('ifri_ok','1')}catch(e){}intro.hidden=false;idx=0;show()}
+function finish(){clearTimeout(timer);intro.hidden=true;ask.hidden=false}
+function show(){var s=SL[idx],d=document.createElement('div');d.className='line';
+d.innerHTML='<div class="big">'+s.t+'</div><p class="sub">'+s.s+'</p>'+(s.last?'<button class="btn" id="enterBtn" type="button">Continuer →</button>':'');
+stage.innerHTML='';stage.appendChild(d);
+requestAnimationFrame(function(){requestAnimationFrame(function(){d.classList.add('show')})});
+bar.style.width=((idx+1)/SL.length*100)+'%';
+if(s.last){document.getElementById('enterBtn').addEventListener('click',finish)}
+else{timer=setTimeout(function(){d.classList.remove('show');timer=setTimeout(function(){idx++;show()},900)},4300)}}
+document.getElementById('skip').addEventListener('click',finish);
+var ask=document.getElementById('ask'),fq=document.getElementById('fq'),fb=document.getElementById('fbtns');
+var QS=['C’est quoi cette filière ?','Qu’est-ce qu’on y fait concrètement ?','Quels avantages et quels métiers ?','Quelle est la réalité au Bénin ?','Et dans le monde ?'];
+var FD={
+gl:{n:'Génie Logiciel',e:'💻',a:[
+'La filière qui t’apprend à concevoir, construire et maintenir des logiciels : applications web, mobiles, systèmes d’entreprise. C’est l’art de transformer un besoin en programme fiable.',
+'Tu analyses des besoins, tu modélises (UML), tu programmes, tu testes, tu travailles en équipe sur des projets et tu apprends les méthodes de développement modernes.',
+'Les logiciels sont partout, donc les débouchés sont variés : développeur, architecte logiciel, testeur, chef de projet, entrepreneur tech. Le travail à distance pour des clients étrangers est possible.',
+'Banques, télécoms, administrations qui se digitalisent, startups et agences : les entreprises béninoises ont besoin de développeurs. La concurrence existe, donc les projets et les compétences prouvées comptent plus que le seul diplôme.',
+'Le logiciel est l’un des secteurs qui recrutent le plus, et beaucoup de développeurs travaillent à distance pour des entreprises de plusieurs pays. Les technologies évoluent vite : il faut apprendre toute sa vie.']},
+si:{n:'Sécurité Informatique',e:'🛡️',a:[
+'La filière qui t’apprend à protéger les systèmes, les réseaux et les données contre les attaques. Tu apprends à penser comme un attaquant pour mieux défendre.',
+'Réseaux, systèmes, cryptographie, détection de failles, tests d’intrusion, gestion des incidents. Beaucoup de pratique en laboratoire et des mathématiques solides pour la cryptographie.',
+'Un métier de confiance et très demandé : analyste sécurité, pentester, administrateur sécurité, auditeur, expert en réponse aux incidents. Les profils compétents sont rares.',
+'Avec la digitalisation des services publics, des banques et du paiement mobile, protéger les données devient vital pour les institutions comme pour les entreprises. Le domaine est en croissance et les experts restent peu nombreux.',
+'Les cyberattaques touchent tous les pays et les spécialistes manquent dans beaucoup d’entre eux. Les certifications internationales et la pratique constante font la différence.']},
+im:{n:'Internet et Multimédia',e:'🎨',a:[
+'La filière qui mêle technique et créativité : sites web, applications, interfaces, contenus numériques, audiovisuel, animation, jeux.',
+'Développement web et mobile, conception d’interfaces (UX/UI), traitement d’image, son et vidéo, animation 2D/3D, création de contenus interactifs.',
+'Tu peux être développeur web, designer d’interface, créateur de contenus, motion designer, développeur de jeux ou entrepreneur du digital. Un portfolio solide t’ouvre beaucoup de portes.',
+'Le commerce en ligne, les médias, les agences de communication et les startups ont besoin de produits numériques soignés. Le freelance et la création de ta propre activité sont des options réelles.',
+'Chaque entreprise a besoin d’une présence en ligne, et les métiers du web, du design et des contenus se pratiquent souvent à distance. L’originalité de ton travail compte autant que ton diplôme.']},
+ia:{n:'Intelligence Artificielle',e:'🤖',a:[
+'La filière qui apprend aux machines à apprendre : prédire, reconnaître des images, comprendre le langage, aider à décider à partir des données.',
+'Statistiques et probabilités, algèbre, programmation (Python notamment), apprentissage automatique, traitement de données, projets d’IA appliqués. Les mathématiques y sont le cœur du métier.',
+'Data scientist, ingénieur en apprentissage automatique, analyste de données, chercheur. C’est un domaine en plein essor et très valorisé.',
+'Le Bénin s’y intéresse : l’IFRI organise par exemple le Benin Workshop on Artificial Intelligence. Agriculture, santé, finance ou langues locales offrent des cas d’usage concrets, et les talents locaux sont encore peu nombreux.',
+'L’IA transforme presque tous les secteurs, et les entreprises et laboratoires cherchent des profils solides. La compétition est forte : maths, pratique et curiosité te distingueront.']},
+se:{n:'Systèmes Embarqués et IoT',e:'📡',a:[
+'La filière qui relie le logiciel au monde physique : capteurs, microcontrôleurs, objets connectés et systèmes qui tournent dans les machines.',
+'Programmation proche du matériel (souvent en C), électronique numérique, microcontrôleurs, communication entre objets, prototypes connectés. Tu construis des choses que tu peux toucher.',
+'Ingénieur systèmes embarqués, développeur IoT, concepteur d’objets connectés, automatisation, maintenance de systèmes intelligents. Un profil rare, car il demande du logiciel et du matériel.',
+'Agriculture connectée, énergie, domotique, villes intelligentes : les besoins existent. Obtenir du matériel peut coûter cher et prendre du temps, mais l’esprit d’inventeur et le prototypage ouvrent des opportunités.',
+'Les objets connectés se retrouvent dans l’automobile, l’industrie, la santé et la maison. Ceux qui maîtrisent à la fois le code et le matériel sont recherchés.']}
+};
+function applyF(k){var f=FD[k],h='<h2>'+f.e+' Tout savoir sur la filière '+f.n+'</h2>';
+for(var i=0;i<QS.length;i++){h+='<details class="qa"><summary>'+QS[i]+'</summary><p>'+f.a[i]+'</p></details>'}
+h+='<button class="change" id="chg" type="button">Changer de filière</button>';fq.innerHTML=h;
+document.getElementById('bd').textContent='L1 · '+f.n;
+document.getElementById('h1').innerHTML='Bienvenue en <span style="color:var(--accent)">'+f.n+'</span>&nbsp;! '+f.e;
+ask.hidden=true;gate.hidden=true;site.hidden=false;try{sessionStorage.setItem('ifri_f',k)}catch(e){}window.scrollTo(0,0);
+document.getElementById('chg').addEventListener('click',function(){site.hidden=true;ask.hidden=false})}
+for(var k in FD){(function(k){var b=document.createElement('button');b.className='fbtn';b.type='button';b.textContent=FD[k].e+'  '+FD[k].n;b.addEventListener('click',function(){applyF(k)});fb.appendChild(b)})(k)}
+try{if(sessionStorage.getItem('ifri_ok')==='1'){gate.hidden=true;var sf=sessionStorage.getItem('ifri_f');if(sf&&FD[sf]){applyF(sf)}else{ask.hidden=false}}}catch(e){}
+</script>
+</body>
+            </html>
